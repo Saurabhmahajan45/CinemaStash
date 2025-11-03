@@ -4,6 +4,7 @@ import { connectDb } from './src/configs/Dbconfig.js';
 import { adminLogin, registerAdmin } from './src/controllers/AdminController.js';
 import { registerUser, userLogin } from './src/controllers/UserController.js';
 import { addMovie, updateMovie, deleteMovie, getAllMovies, getMovieById, searchMovies, getMoviesByGenre, updateMovieRating } from './src/controllers/MovieController.js';
+import { createBooking, getAllBookings, getBookingsByUser, updateBookingStatus } from './src/controllers/BookingController.js';
 
 const app = express();
 app.use(cors());
@@ -24,6 +25,12 @@ app.get("/movies/:id", getMovieById);
 app.get("/movies/search", searchMovies);
 app.get("/movies/genre/:genre", getMoviesByGenre);
 app.patch("/movies/:id/rating", updateMovieRating);
+
+app.post("/booking", createBooking);
+app.get("/booking/user/:user_id", getBookingsByUser);
+app.get("/booking", getAllBookings);
+app.put("/booking/status/:booking_id", updateBookingStatus);
+
 
 app.listen(6500,()=>{
     connectDb();
