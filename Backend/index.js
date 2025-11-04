@@ -8,6 +8,7 @@ import { ROLES } from './src/constants/RoleConstants.js';
 import { authorize, verifyToken } from './src/middlewares/VerifyToken.js';
 import { addMovie, updateMovie, deleteMovie, getAllMovies, getMovieById, searchMovies, getMoviesByGenre, updateMovieRating } from './src/controllers/MovieController.js';
 import { createBooking, getAllBookings, getBookingsByUser, updateBookingStatus } from './src/controllers/BookingController.js';
+import { addReview, getReviewsByMovie, updateReview, deleteReview } from './src/controllers/ReviewController.js';
 
 const app = express();
 app.use(cors());
@@ -32,6 +33,11 @@ app.post("/booking", createBooking);
 app.get("/booking/user/:user_id", getBookingsByUser);
 app.get("/booking", getAllBookings);
 app.put("/booking/status/:booking_id", updateBookingStatus);
+
+app.post("/reviews/add", addReview);
+app.get("/reviews/movie/:movie_id", getReviewsByMovie);
+app.put("/reviews/update", updateReview);
+app.delete("/reviews/delete", deleteReview);
 
 
 app.listen(6500,()=>{
