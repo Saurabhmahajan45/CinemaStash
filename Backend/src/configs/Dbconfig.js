@@ -7,7 +7,7 @@ export async function connectDb() {
         connection = await createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'cdac',
+            password: 'darshil@2010',
             port: 3306,
             database: 'cinema_stash' 
         });
