@@ -1,0 +1,53 @@
+.hero-section {
+  background-image: url("../background.jpg"); /* Replace with your movie image URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#explore{
+   border-radius: 40px; 
+   border: none;
+   background-color: goldenrod;
+}
+
+.hero-content {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-desc {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.studio-logo {
+  width: 450px;
+  filter: brightness(1.2);
+}
+
+button.btn-danger {
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 10px 25px;
+  background-color: #e50914;
+  border: none;
+  transition: 0.3s ease;
+}
+
+button.btn-danger:hover {
+  background-color: #b00610;
+}
