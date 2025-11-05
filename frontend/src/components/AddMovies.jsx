@@ -3,7 +3,8 @@ import { Button, Card, Container, Form, ToastContainer } from "react-bootstrap";
 import { Bounce, toast } from "react-toastify";
 import "../assets/css/AddMovies.css";
 
-export function AddMovies() {
+export default
+ function AddMovies() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",

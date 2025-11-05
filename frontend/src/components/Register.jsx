@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../assets/css/Register.css";
 import { RegisterService } from "../services/RegisterService";
 
-export function Register() {
+export default function Register() {
   const [formData, setformdata] = useState({name:'',email:'',phone:'',password:''});
   const [confirmPassword, setConfirmPassword] = useState("");
 

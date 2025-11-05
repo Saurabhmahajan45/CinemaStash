@@ -8,7 +8,7 @@ import { getToken, storeToken } from "../services/TokenService.js";
 import { storeRole } from "../services/RoleService.js";
 
 
-export function Login() {
+export default function Login() {
   const [formData, setFormData] = useState({ phone: "", password: "", role: "user" });
   const navigate = useNavigate();
 

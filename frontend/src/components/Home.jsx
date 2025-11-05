@@ -3,7 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import "../assets/css/Home.css";
 import avengers from '../assets/avengers.png';
 
-export function Home(){
+export default function Home(){
   return (
     <div className="hero-section">
       <div className="overlay">

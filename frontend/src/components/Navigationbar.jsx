@@ -1,7 +1,7 @@
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
 
-export function Navigationbar() {
+export default function Navigationbar() {
     return (
         <Navbar bg="black" variant="black" expand="lg" fixed="top" className="px-4 py-3 border-bottom border-warning">
             <Container>
