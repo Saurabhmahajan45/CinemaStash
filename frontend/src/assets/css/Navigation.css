@@ -1,0 +1,102 @@
+/* Navigationbar.css */
+
+/* 🔶 General Navbar Styling */
+.navbar {
+  background: linear-gradient(90deg, #000000, #1a1a1a, #000000);
+  border-bottom: 2px solid #ffc107;
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 0 25px rgba(255, 193, 7, 0.5);
+}
+
+/* 🎬 Brand Logo */
+.navbar-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: #ffc107 !important;
+  text-shadow: 0 0 8px rgba(255, 193, 7, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* 🎥 Nav Links */
+.nav-link {
+  color: #f8f9fa !important;
+  font-weight: 500;
+  margin: 0 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #ffc107;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107 !important;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* 🍿 Buttons */
+.btn-success {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #ffdb4d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-warning {
+  color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+  transform: translateY(-2px);
+}
+
+/* 🌙 Mobile Responsive Adjustments */
+@media (max-width: 991px) {
+  .navbar {
+    text-align: center;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+  }
+
+  .btn-success,
+  .btn-outline-warning {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
