@@ -1,0 +1,83 @@
+/* Full-height, centered layout */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #ffe082);
+}
+
+/* Center form section */
+.contact-container {
+  flex: 1; /* Ensures footer stays at bottom */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card styling (same theme as About/Login pages) */
+.contact-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+.contact-card h3 {
+  color: #333;
+  font-weight: 700;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  transition: 0.2s;
+}
+
+.form-control:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+/* Button styling */
+button[type="submit"],
+.btn-primary {
+  background-color: #ffc107 !important;
+  border: none !important;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s;
+  color: #000 !important;
+}
+
+button[type="submit"]:hover,
+.btn-primary:hover {
+  background-color: #ffb300 !important;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .contact-card {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+}

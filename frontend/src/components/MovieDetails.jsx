@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../assets/css/card.css";
+import { MOVIES_API_URL } from "../constants/APIConstants"; 
+
+import { Link } from "react-router-dom";
+
+
+// import "../assets/css/card.css";
 
 export default function MovieDetails() {
   const { id } = useParams();
@@ -9,9 +14,7 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:6500/movies/${id}`)
-      .then(res => setMovie(res.data))
-      .catch(err => console.log(err));
+    axios.get(`${API_BASE_URL}/movies/${id}`).then((res) => setMovie(res.data));
   }, [id]);
 
   if (!movie) return <h3>Loading...</h3>;

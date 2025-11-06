@@ -1,5 +1,7 @@
+// src/services/RoleService.js
+
 export function storeRole(role){
-    localStorage.setItem("role",role);
+    localStorage.setItem("role", role);
 }
 
 export function getRole(){

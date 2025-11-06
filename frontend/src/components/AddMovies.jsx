@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Container, Form, ToastContainer } from "react-bootstrap";
 import { Bounce, toast } from "react-toastify";
+import { saveMovies } from "../services/MovieServices";
 import "../assets/css/AddMovies.css";
 
 export default
@@ -9,8 +10,8 @@ export default
     title: "",
     description: "",
     genre: "",
-    posterurl: "",
-    releaseyear: ""
+    release_year: "",
+    poster_url: ""
   });
 
   const handleChange = (e) => {
@@ -21,7 +22,7 @@ export default
     e.preventDefault();
     try {
       console.log(formData);
-      const response = await AddMovies(formData);
+      const response = await saveMovies(formData);
       console.log(response);
 
       if (response.status === 200) {
@@ -55,7 +56,7 @@ export default
 
   return (
     <div className="add-movie-page">
-      <Container>
+      <Container className="d-flex justify-content-center">
         <Card className="add-movie-card border-0 rounded-4 shadow">
           <Card.Body>
             <h3 className="text-center mb-4 text-warning fw-bold">
@@ -100,25 +101,25 @@ export default
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Label>Image URL</Form.Label>
+               <Form.Group className="mb-4">
+                <Form.Label>Release Year</Form.Label>
                 <Form.Control
-                  type="text"
-                  name="posterurl"
-                  placeholder="Enter image URL"
-                  value={formData.posterurl}
+                  type="number"
+                  name="release_year"
+                  placeholder="Enter release year"
+                  value={formData.release_year}
                   onChange={handleChange}
                   required
                 />
               </Form.Group>
 
-              <Form.Group className="mb-4">
-                <Form.Label>Release Year</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label>Image URL</Form.Label>
                 <Form.Control
-                  type="number"
-                  name="releaseyear"
-                  placeholder="Enter release year"
-                  value={formData.releaseyear}
+                  type="text"
+                  name="poster_url"
+                  placeholder="Enter image URL"
+                  value={formData.poster_url}
                   onChange={handleChange}
                   required
                 />

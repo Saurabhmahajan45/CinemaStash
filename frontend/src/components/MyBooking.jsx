@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../assets/css/card.css";
+// import "../assets/css/card.css";
+import { getBookingsByUserId } from "../services/BookingService";
+import { getCurrentUserId } from "../services/UserServices";
 
 export default function MyBookings() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:6500/booking/user/1")  // TODO: replace 1 with actual logged-in user ID
+   getBookingsByUserId(getCurrentUserId())
       .then((res) => setBookings(res.data))
-      .catch((err) => console.log(err));
+      .catch(() => console.error("Failed to fetch bookings"));
   }, []);
 
   return (

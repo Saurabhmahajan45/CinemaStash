@@ -1,26 +1,35 @@
-import axios from "axios";
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import "../assets/css/card.css";
+import { useNavigate, useParams } from "react-router-dom";
+// import "../assets/css/card.css";
+import { createBooking } from "../services/BookingService";
+import { getCurrentUserId } from "../services/UserServices";
 
 export default function BookingPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [show_time, setShowTime] = useState("");
+  const [showTime, setShowTime] = useState("");
   const [seats, setSeats] = useState("");
 
-  const handleBooking = (e) => {
+  
+  const handleBooking = async (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:6500/booking", {
-      user_id: 1,   
+    const bookingData = {
+      user_id: getCurrentUserId(),
       movie_id: id,
-      show_time,
-      seats
-    })
-    .then(() => navigate("/my-bookings"))
-    .catch(err => alert("Booking failed"));
+      seats,
+      show_time: showTime,
+    };
+
+    try {
+      await createBooking(bookingData); // now valid inside async
+      alert("Booking successful!");
+      navigate("/my-bookings");
+    } catch (err) {
+      console.log(err);
+      alert("Booking failed!");
+    }
   };
 
   return (
@@ -32,6 +41,7 @@ export default function BookingPage() {
           <input 
             type="datetime-local"
             className="form-control"
+            value={showTime}
             onChange={e => setShowTime(e.target.value)}
             required 
           />
@@ -40,6 +50,7 @@ export default function BookingPage() {
             type="number"
             className="form-control"
             placeholder="Number of Seats"
+            value={seats}
             onChange={e => setSeats(e.target.value)}
             required 
           />
