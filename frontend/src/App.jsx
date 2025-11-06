@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { Navigationbar } from "./components/Navigationbar";
 import { Home } from "./components/Home";
 import { Dashboard } from "./components/Dashboard";
@@ -7,7 +8,9 @@ import { MoviesList } from "./components/MoviesList";
 import { UpdateMovies } from "./components/UpdateMovies";
 import { AboutUs } from "./components/AboutUs";
 import { Login } from "./components/Login";
-import { Register } from "./components/Register";
+import { Register } from "./components/Register";  
+import { ContactUs }from "./components/ContactUs";
+import { Footer } from "./components/Footer"
 
 
 
@@ -23,10 +26,14 @@ function App() {
         <Route path="/movies-list" element={<MoviesList/>}/>
         <Route path="/edit-movies/:id" element={<UpdateMovies/>} />
         <Route path="/about-us" element={<AboutUs/>}/>
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
       </Routes>
+       <Footer/>
+       <ToastContainer/>
     </BrowserRouter>
+
   )
 }
 

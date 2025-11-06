@@ -55,7 +55,7 @@ export function AddMovies() {
 
   return (
     <div className="add-movie-page">
-      <Container>
+      <Container className="d-flex justify-content-center">
         <Card className="add-movie-card border-0 rounded-4 shadow">
           <Card.Body>
             <h3 className="text-center mb-4 text-warning fw-bold">

@@ -34,6 +34,10 @@ export function Navigationbar() {
                             <Nav.Link className="text-light">Dashboard</Nav.Link>
                         </LinkContainer>
 
+                        <LinkContainer to="/movies">
+                                    <Nav.Link className="text-light">Movies</Nav.Link>
+                        </LinkContainer>
+
                         {role === ROLES.ADMIN ? (
                             <>
                                 <LinkContainer to="/add-movies">
@@ -41,13 +45,18 @@ export function Navigationbar() {
                                 </LinkContainer>
 
                                 <LinkContainer to="/movies-list">
-                                    <Nav.Link className="text-light">Movies</Nav.Link>
+                                    <Nav.Link>Movies List</Nav.Link>
                                 </LinkContainer>
+
                             </>
                         ) : (
                             <>
                                 <LinkContainer to="/about-us">
                                     <Nav.Link className="text-light">About Us</Nav.Link>
+                                </LinkContainer>
+
+                                 <LinkContainer to="/contact">
+                                    <Nav.Link className="text-light">Contact Us</Nav.Link>
                                 </LinkContainer>
 
                                 <LinkContainer to="/register">

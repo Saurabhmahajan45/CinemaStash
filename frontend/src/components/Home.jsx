@@ -63,9 +63,9 @@ export function Home(){
                 <Card.Body>
                   <Card.Title>{offer.title}</Card.Title>
                   <Card.Text>{offer.desc}</Card.Text>
-                  <Button variant="warning" className="rounded-pill">
+                  {/* <Button variant="warning" className="rounded-pill">
                     Book Now
-                  </Button>
+                  </Button> */}
                 </Card.Body>
               </Card>
             </Col>

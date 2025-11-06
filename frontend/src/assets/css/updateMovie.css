@@ -1,0 +1,68 @@
+.update-movie-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* use min-height for better mobile handling */
+  background: linear-gradient(135deg, #f8f9fa, #ffe082);
+  padding: 2rem; /* adds breathing space for smaller screens */
+}
+
+.update-movie-card {
+  width: 100%;
+  max-width: 500px; /* narrower for a cleaner look */
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add subtle hover elevation */
+.update-movie-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Alert style */
+.update-movie-card .alert {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+  border-radius: 10px;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+/* Button */
+button[type="submit"] {
+  background-color: #ffc107;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.8rem;
+  transition: 0.3s;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffb300;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .update-movie-card {
+    padding: 1.8rem;
+    max-width: 95%;
+  }
+}
