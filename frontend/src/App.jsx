@@ -12,7 +12,8 @@ import { Register } from "./components/Register";
 import { ContactUs }from "./components/ContactUs";
 import { Footer } from "./components/Footer"
 import { AdminBookings } from "./components/AdminBooking";
-
+import MyBookings from "./components/MyBooking";
+import Movies from "./components/Movies";
 
 
 function App() {
@@ -31,6 +32,10 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+
+         <Route path="/mybooking" element={<MyBookings/>}/>
+         <Route path="/movies" element={<Movies/>}/>
+
       </Routes>
        <Footer/>
        <ToastContainer/>

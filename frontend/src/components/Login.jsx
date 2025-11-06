@@ -47,7 +47,7 @@ export function Login() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "colored",
+          theme: "login",
           transition: Bounce,
         });
       }

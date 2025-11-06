@@ -38,6 +38,10 @@ export function Navigationbar() {
                                     <Nav.Link className="text-light">Movies</Nav.Link>
                         </LinkContainer>
 
+                        <LinkContainer to="/mybooking">
+                                    <Nav.Link className="text-light">My Booking</Nav.Link>
+                        </LinkContainer>
+
                         {role === ROLES.ADMIN ? (
                             <>
                                 <LinkContainer to="/add-movies">

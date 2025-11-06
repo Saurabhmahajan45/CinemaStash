@@ -33,7 +33,7 @@ export function AddMovies() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "colored",
+          theme: "light",
           transition: Bounce,
         });
       }
@@ -47,7 +47,7 @@ export function AddMovies() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "colored",
+        theme: "light",
         transition: Bounce,
       });
     }

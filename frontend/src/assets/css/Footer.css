@@ -8,12 +8,11 @@
   margin-top: auto;
 }
 
-/* Highlight color */
+
 .highlight {
   color: #ffc107;
 }
 
-/* Navigation links */
 .footer-links li {
   margin: 0 12px;
 }
@@ -29,7 +28,6 @@
   color: #ffc107;
 }
 
-/* Social media icons */
 .social-icons a {
   color: #ccc;
   margin: 0 8px;
@@ -42,12 +40,11 @@
   transform: scale(1.1);
 }
 
-/* Divider line */
 .site-footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
   .footer-links {
     flex-direction: column;
