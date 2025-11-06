@@ -84,15 +84,13 @@ export function MoviesList() {
 
     return (
         <Container className="mt-3" style={{ padding: "80px 0" }}>
-            <Row>
-                <Col lg={8}>
-                    <h2 className="text-warning">Movies List</h2>
-                </Col>
+            <Row>    
+                     <h3 className="text-center text-warning fw-bold mt-4">🎥 Movie List</h3>
             </Row>
             {
                 movies.length === 0 ? <Alert variant="primary">No movie found</Alert> :
                     <Table striped bordered hover className="mt-3 align-middle text-center">
-                        <thead>
+                        <thead className="table-dark text-center">
                             <tr>
                                 <th>S.No</th>
                                 <th>Name</th>

@@ -11,6 +11,7 @@ import { Login } from "./components/Login";
 import { Register } from "./components/Register";  
 import { ContactUs }from "./components/ContactUs";
 import { Footer } from "./components/Footer"
+import { AdminBookings } from "./components/AdminBooking";
 
 
 
@@ -24,7 +25,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/add-movies" element={<AddMovies/>}/>
         <Route path="/movies-list" element={<MoviesList/>}/>
-        <Route path="/edit-movies/:id" element={<UpdateMovies/>} />
+        <Route path="/edit-movies/:movie_id" element={<UpdateMovies/>} />
+        <Route path="/admin/bookings" element={<AdminBookings/>} />
         <Route path="/about-us" element={<AboutUs/>}/>
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login/>}/>

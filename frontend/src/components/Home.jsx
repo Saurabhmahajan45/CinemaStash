@@ -1,9 +1,12 @@
 import React from "react";
 import { Button, Container,Row, Col, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../assets/css/Home.css";
 import avengers from '../assets/avengers.png';
 
 export function Home(){
+    const navigate = useNavigate();
+
   return (
     <div>
     <div className="hero-section">
@@ -19,7 +22,7 @@ export function Home(){
             the Avengers assemble once more in order to reverse Thanos' <br/>
             actions and restore balance to the universe.
           </p>
-          <Button className="mt-3" id="explore">
+          <Button className="mt-3" id="explore"  onClick={() => navigate("/movies")}>
             Explore Movies →
           </Button>
         </Container>
@@ -29,7 +32,7 @@ export function Home(){
     
 
      <Container className="my-5">
-        <h3 className="text-center mb-4">Upcoming Movies</h3>
+        <h3 className="text-center mb-4 ">Upcoming Movies</h3>
         <Row className="g-4">
           {[
             {

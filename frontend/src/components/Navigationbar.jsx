@@ -48,6 +48,10 @@ export function Navigationbar() {
                                     <Nav.Link>Movies List</Nav.Link>
                                 </LinkContainer>
 
+                                <LinkContainer to="/admin/bookings">
+                                    <Nav.Link>Admin Bookings</Nav.Link>
+                                </LinkContainer>
+
                             </>
                         ) : (
                             <>
