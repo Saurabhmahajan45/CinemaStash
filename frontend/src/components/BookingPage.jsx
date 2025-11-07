@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../assets/css/card.css";
+import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { createBooking } from "../services/BookingService";
 import { getCurrentUserId } from "../services/UserService";
 import { Bounce, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { getRole, getUserId } from "../services/RoleService";
 
-export  function BookingPage() {
+export function BookingPage() {
   const { id } = useParams(); // movie_id from URL
   const navigate = useNavigate();
 
   const [showTime, setShowTime] = useState("");
   const [seats, setSeats] = useState("");
 
-  // Handle booking
   const handleBooking = async (e) => {
     e.preventDefault();
 
-    const user_id = getCurrentUserId();
+    const role = getRole();
+    const user_id = getUserId();
 
-    if (!user_id) {
+    if (!role) {
       toast.error("Please login to book tickets!", {
-        position: "top-center",
+        position: "top-right",
         theme: "colored",
         transition: Bounce,
       });
@@ -63,40 +63,62 @@ export  function BookingPage() {
   };
 
   return (
-    <div className="booking-wrapper">
-      <div className="booking-card shadow-lg">
-        <h2 className="booking-title">🎬 Book Your Movie</h2>
-        <p className="booking-subtitle">Select your show time and seats below</p>
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ paddingTop: "120px", paddingBottom: "120px" }}
+    >
+      <Row className="justify-content-center w-100">
+        <Col md={8} lg={6}>
+          <Card className="shadow-lg border-0 rounded-4">
+            <Card.Body className="p-5">
+              <div className="text-center mb-4">
+                <h2 className="fw-bold text-primary">🎬 Book Your Movie</h2>
+                <p className="text-muted mb-0">
+                  Select your show time and seats below
+                </p>
+              </div>
 
-        <form onSubmit={handleBooking} className="booking-form">
-          <div className="form-group">
-            <label>Show Time</label>
-            <input
-              type="datetime-local"
-              className="form-control"
-              value={showTime}
-              onChange={(e) => setShowTime(e.target.value)}
-              required
-            />
-          </div>
+              <Form onSubmit={handleBooking}>
+                <Form.Group className="mb-4" controlId="showTime">
+                  <Form.Label className="fw-semibold">Show Time</Form.Label>
+                  <Form.Control
+                    type="datetime-local"
+                    value={showTime}
+                    onChange={(e) => setShowTime(e.target.value)}
+                    required
+                  />
+                </Form.Group>
 
-          <div className="form-group">
-            <label>Number of Seats</label>
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Enter number of seats"
-              value={seats}
-              onChange={(e) => setSeats(e.target.value)}
-              required
-            />
-          </div>
+                <Form.Group className="mb-4" controlId="seats">
+                  <Form.Label className="fw-semibold">Number of Seats</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Enter number of seats"
+                    value={seats}
+                    onChange={(e) => setSeats(e.target.value)}
+                    required
+                    min="1"
+                  />
+                </Form.Group>
 
-          <button type="submit" className="booking-btn">
-            Confirm Booking
-          </button>
-        </form>
-      </div>
-    </div>
+                <div className="d-flex gap-3 mt-4">
+                  <Button variant="primary" type="submit" className="w-100">
+                    🎟 Confirm Booking
+                  </Button>
+
+                  <Button
+                    variant="outline-secondary"
+                    className="w-100"
+                    onClick={() => navigate(-1)}
+                  >
+                    ⬅ Back
+                  </Button>
+                </div>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }

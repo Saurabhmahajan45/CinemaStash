@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Table, Container } from "react-bootstrap";
+import { Table, Container, Button } from "react-bootstrap";
 import { getAllBookings } from "../services/BookingService";
+import { useNavigate } from "react-router-dom";
 
 
 export function AdminBookings() {
   const [bookings, setBookings] = useState([]);
+   const navigate = useNavigate();
 
   const fetchBookings = async () => {
     try {
@@ -25,6 +27,9 @@ export function AdminBookings() {
     <div className="mt-3" style={{ padding: "80px 0" }}>
       <Container>
         <h3 className="text-center text-warning fw-bold mt-4">🎟️ All Bookings</h3>
+        <Button variant="outline-primary" onClick={() => navigate("/admin/dashboard")}>
+             Back to Dashboard
+          </Button>
         <Table striped bordered hover responsive className="mt-4">
           <thead className="table-dark text-center">
             <tr>

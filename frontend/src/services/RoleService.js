@@ -16,3 +16,19 @@ export function getRole() {
 export function removeRole() {
   localStorage.removeItem(ROLE_KEY);
 }
+
+export function getUserId() {
+  return localStorage.getItem("user_id");
+}
+
+export function setUserId(id) {
+  return localStorage.setItem("user_id" ,id);
+}
+
+export function removeUserId() {
+  return localStorage.removeItem("user_id");
+}
+
+// export function storeRole(role) {
+//   localStorage.setItem("role", role);
+// }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllMovies } from "../services/MovieServices";
-// import "../assets/css/MovieList.css"; // optional CSS if you have one
+import { Container, Row, Col, Card, Button, Spinner, Alert } from "react-bootstrap";
 
-export  function MovieList() {
+export function MovieList() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -19,89 +19,104 @@ export  function MovieList() {
         setLoading(false);
       }
     };
-
     fetchMovies();
   }, []);
 
   if (loading) {
     return (
-      <div className="page-wrapper text-center py-5">
-        <div className="spinner-border text-warning" role="status">
+      <Container
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "80vh" }}
+      >
+        <Spinner animation="border" variant="primary" role="status">
           <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
+        </Spinner>
+      </Container>
     );
   }
 
   return (
-    <div className="page-wrapper py-5">
-      <div className="container">
-        <div className="card p-4 shadow-sm">
-          <div className="text-center mb-4">
-            <h1 className="display-6 fw-bold text-dark">🎬 Movie Collection</h1>
-            <p className="lead text-muted">Discover and book your favorite movies</p>
-          </div>
+    <Container className="" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
+      <Row className="justify-content-center mb-5 text-center">
+        <Col lg={8}>
+          <h1 className="display-6 fw-bold text-primary">🎬 Movie Collection</h1>
+          <p className="text-muted fs-5">
+            Explore and book your favorite movies easily
+          </p>
+        </Col>
+      </Row>
 
-          <div className="d-flex justify-content-between align-items-center mb-4">
-            <span className="text-muted">
-              Showing {movies.length} movie{movies.length !== 1 ? "s" : ""}
-            </span>
-            <button
-              className="btn btn-outline-dark btn-sm"
-              onClick={() => navigate("/add-movie")}
-            >
-              ➕ Add Movie
-            </button>
-          </div>
+      <Row className="align-items-center mb-4">
+        <Col>
+          <p className="text-muted mb-0">
+            Showing {movies.length} movie{movies.length !== 1 ? "s" : ""}
+          </p>
+        </Col>
+      </Row>
 
-          {movies.length === 0 ? (
-            <p className="text-center text-muted">No movies available.</p>
-          ) : (
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-              {movies.map((movie) => (
-                <div key={movie.movie_id} className="col">
-                  <div
-                    className="card h-100 movie-card shadow-sm border-0"
-                    onClick={() => navigate(`/movies/${movie.movie_id}`)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <img
-                      src={movie.poster_url}
-                      alt={movie.title}
-                      className="card-img-top"
-                      onError={(e) => {
-                        e.target.src =
-                          "https://via.placeholder.com/300x450/ffc107/ffffff?text=No+Image";
-                      }}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title fw-bold">{movie.title}</h5>
-                      <p className="card-text text-muted">{movie.genre || "Genre Unknown"}</p>
-                      <div className="d-flex justify-content-between align-items-center mb-3">
-                        <span className="badge bg-warning text-dark">
-                          ⭐ {movie.rating || "N/A"} / 5
-                        </span>
-                        <span className="text-muted small">
-                          {movie.release_year || "Year Unknown"}
-                        </span>
-                      </div>
-                      <button
-                        className="btn btn-primary w-100"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate(`/movies/${movie.movie_id}`);
-                        }}
-                      >
-                        🎟️ Book Now
-                      </button>
+      {movies.length === 0 ? (
+        <Alert variant="warning" className="text-center">
+          No movies available.
+        </Alert>
+      ) : (
+        <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+          {movies.map((movie) => (
+            <Col key={movie.movie_id}>
+              <Card
+                className="h-100 shadow-sm border-0 rounded-4"
+                style={{ cursor: "pointer", transition: "transform 0.2s" }}
+                onClick={() => navigate(`/movies/${movie.movie_id}`)}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              >
+                <Card.Img
+                  variant="top"
+                  src={
+                    movie.poster_url ||
+                    "https://via.placeholder.com/300x450/ced4da/ffffff?text=No+Image"
+                  }
+                  alt={movie.title}
+                  className="object-fit-cover"
+                  style={{ height: "380px" }}
+                  onError={(e) =>
+                    (e.currentTarget.src =
+                      "https://via.placeholder.com/300x450/ced4da/ffffff?text=No+Image")
+                  }
+                />
+                <Card.Body className="d-flex flex-column justify-content-between">
+                  <div>
+                    <Card.Title className="fw-bold text-dark mb-2">
+                      {movie.title}
+                    </Card.Title>
+                    <Card.Text className="text-muted mb-1">
+                      {movie.genre || "Genre Unknown"}
+                    </Card.Text>
+                    <div className="d-flex justify-content-between align-items-center mt-2">
+                      <span className="badge bg-warning text-dark">
+                        ⭐ {movie.rating || "N/A"} / 5
+                      </span>
+                      <small className="text-muted">
+                        {movie.release_year || "Year Unknown"}
+                      </small>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+
+                  <Button
+                    variant="primary"
+                    className="mt-3 w-100"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/movies/${movie.movie_id}`);
+                    }}
+                  >
+                    🎟️ Book Now
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      )}
+    </Container>
   );
 }

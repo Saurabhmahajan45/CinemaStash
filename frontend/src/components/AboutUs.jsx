@@ -27,12 +27,9 @@ export function AboutUs() {
   return (
     <div className="about-page">
       <Container className="about-container">
-        <h2 className="mb-4 fw-bold">About Our Project</h2>
+        <h2 className="mb-4 fw-bold" >About Our Project</h2>
         <p className="mb-5 fs-5">
-          Our project, <b>CinemaStash</b>, is developed as part of our final-year
-          engineering initiative. It focuses on building a smart and efficient
-          web platform that enhances user experience using modern web
-          technologies.
+          Our project, <b>CinemaStash</b> is your one-stop platform to discover, review, rate, and book movies effortlessly. Users can explore movies, leave ratings and reviews, and book tickets, while admins can manage movies, bookings, and reviews. Built with React, Node.js, Express, and MySQL, Cinema Stash combines simplicity, speed, and a modern interface for the ultimate movie experience.
         </p>
 
         <h3 className="mb-4 fw-semibold">Meet Our Team</h3>

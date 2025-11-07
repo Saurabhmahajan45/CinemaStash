@@ -69,12 +69,6 @@
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
-.btn-outline-warning {
-  color: #ffc107 !important;
-  border-color: #ffc107 !important;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
 
 .btn-outline-warning:hover {
   background-color: #ffc107 !important;

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/LoginService";
-import { setRole } from "../services/RoleService";
+import { setRole, setUserId } from "../services/RoleService";
 import { ROLES } from "../constants/RoleConstant";
+import { storeToken } from "../services/TokenService";
 
 export function Login() {
   const [formData, setFormData] = useState({ phone: "", password: "" });
@@ -15,11 +16,15 @@ export function Login() {
     e.preventDefault();
     try {
       const res = await login({ ...formData, role: ROLES.USER });
+      storeToken(res.data.token);
       setRole(ROLES.USER);
+      setUserId(res.data.user_id);
+      console.log(res.data);
       navigate("/user/dashboard");
     } catch (err) {
       alert("Invalid phone or password");
     }
+  
   };
 
   return (

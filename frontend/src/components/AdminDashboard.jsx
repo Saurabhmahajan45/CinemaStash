@@ -1,26 +1,52 @@
 import { useNavigate } from "react-router-dom";
-import "../assets/css/card.css";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-export default function AdminDashboard() {
+
+export function AdminDashboard() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
-      <h2>Admin Dashboard</h2>
+    <Container className="" style={{ paddingTop: "120px", paddingBottom: "120px"}}>
+      <h2 className="text-center mb-5 text-primary fw-bold">Admin Dashboard</h2>
+      <Row className="justify-content-center g-4">
+        {/* Manage Movies Card */}
+        <Col xs={12} md={6} lg={4}>
+          <Card className="admin-card h-100 shadow-lg border-0 rounded-4 d-flex flex-column text-center p-3">
+            <Card.Body className="flex-grow-1 d-flex flex-column">
+              <Card.Title className="fw-bold mb-3">🎬 Manage Movies</Card.Title>
+              <Card.Text className="text-muted mb-4 flex-grow-1">
+                Add, edit, or remove movies from your collection.
+              </Card.Text>
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => navigate("/movies-list")}
+              >
+                Go to Movies
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
 
-      <button 
-        onClick={() => navigate("/admin/movies")}
-        style={{ padding: "10px", width: "250px", marginTop: "20px" }}
-      >
-        Manage Movies
-      </button>
-
-      <button 
-        onClick={() => navigate("/admin/bookings")}
-        style={{ padding: "10px", width: "250px", marginTop: "20px" }}
-      >
-        Manage Bookings
-      </button>
-    </div>
+        {/* Manage Bookings Card */}
+        <Col xs={12} md={6} lg={4}>
+          <Card className="admin-card h-100 shadow-lg border-0 rounded-4 d-flex flex-column text-center p-3">
+            <Card.Body className="flex-grow-1 d-flex flex-column">
+              <Card.Title className="fw-bold mb-3">📖 Manage Bookings</Card.Title>
+              <Card.Text className="text-muted mb-4 flex-grow-1">
+                View and manage all user bookings and ticket statuses.
+              </Card.Text>
+              <Button
+                variant="warning"
+                size="lg"
+                onClick={() => navigate("/admin/bookings")}
+              >
+                Go to Bookings
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }

@@ -37,13 +37,16 @@ export function Navigationbar() {
               <Nav.Link className="text-light">Home</Nav.Link>
             </LinkContainer>
 
-            {/* 🟢 Admin Links */}
+            {/* Admin Links */}
             {role === "admin" && (
               <>
                 <LinkContainer to="/admin/dashboard">
                   <Nav.Link className="text-light">Admin Dashboard</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/admin/movies">
+                <LinkContainer to="/add-movies">
+                  <Nav.Link className="text-light">Add Movies</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/movies-list">
                   <Nav.Link className="text-light">Manage Movies</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/admin/bookings">
@@ -52,7 +55,7 @@ export function Navigationbar() {
               </>
             )}
 
-            {/* 🟢 User Links */}
+            {/* User Links */}
             {role === "user" && (
               <>
                 <LinkContainer to="/user/dashboard">
@@ -67,7 +70,7 @@ export function Navigationbar() {
               </>
             )}
 
-            {/* 🟢 Guest (Not Logged In) */}
+            {/* Guest (Not Logged In) */}
             {!role && (
               <>
                 <LinkContainer to="/register">
@@ -82,7 +85,7 @@ export function Navigationbar() {
               </>
             )}
 
-            {/* 🟢 Logout for logged-in users */}
+            {/*  Logout for logged-in users */}
             {role && (
               <Button variant="danger" className="ms-3" onClick={handleLogout}>
                 Logout

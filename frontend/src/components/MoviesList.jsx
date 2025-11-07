@@ -87,6 +87,11 @@ export function MoviesList() {
             <Row>    
                      <h3 className="text-center text-warning fw-bold mt-4">🎥 Movie List</h3>
             </Row>
+             <Col className="text-start mt-3">
+          <Button variant="outline-primary" onClick={() => navigate("/admin/dashboard")}>
+             Back to Dashboard
+          </Button>
+        </Col>
             {
                 movies.length === 0 ? <Alert variant="primary">No movie found</Alert> :
                     <Table striped bordered hover className="mt-3 align-middle text-center">
