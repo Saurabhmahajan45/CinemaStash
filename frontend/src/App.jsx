@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Navigationbar } from "./Components/Navigationbar";
@@ -22,7 +21,7 @@ import {AdminDashboard} from "./components/AdminDashboard";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Navigationbar />
 
       <Routes>

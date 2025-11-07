@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { createBooking } from "../services/BookingService";
-import { getCurrentUserId } from "../services/UserService";
 import { Bounce, toast } from "react-toastify";
 import { getRole, getUserId } from "../services/RoleService";
 

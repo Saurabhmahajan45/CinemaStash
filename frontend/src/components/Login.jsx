@@ -23,6 +23,7 @@ export function Login() {
       navigate("/user/dashboard");
     } catch (err) {
       alert("Invalid phone or password");
+      console.error(err);
     }
   
   };

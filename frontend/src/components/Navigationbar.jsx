@@ -26,8 +26,8 @@ export function Navigationbar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="px-4 py-3 border-bottom border-warning">
       <Container>
-        <Navbar.Brand href="/" className="text-warning fw-bold">
-          Cinema Stash
+        <Navbar.Brand href="/" className="text-white fw-bold">
+           Cinema<span className="highlight">Stash</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -41,16 +41,10 @@ export function Navigationbar() {
             {role === "admin" && (
               <>
                 <LinkContainer to="/admin/dashboard">
-                  <Nav.Link className="text-light">Admin Dashboard</Nav.Link>
+                  <Nav.Link className="text-light">Dashboard</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/add-movies">
                   <Nav.Link className="text-light">Add Movies</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/movies-list">
-                  <Nav.Link className="text-light">Manage Movies</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/admin/bookings">
-                  <Nav.Link className="text-light">All Bookings</Nav.Link>
                 </LinkContainer>
               </>
             )}
@@ -59,7 +53,7 @@ export function Navigationbar() {
             {role === "user" && (
               <>
                 <LinkContainer to="/user/dashboard">
-                  <Nav.Link className="text-light">User Dashboard</Nav.Link>
+                  <Nav.Link className="text-light">Dashboard</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/movies">
                   <Nav.Link className="text-light">Movies</Nav.Link>
