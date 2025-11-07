@@ -1,11 +1,18 @@
-export function storeRole(role){
-    localStorage.setItem("role",role);
+// src/services/RoleService.js
+
+const ROLE_KEY = "role";
+
+// Save role (ADMIN or USER)
+export function setRole(role) {
+  localStorage.setItem(ROLE_KEY, role);
 }
 
-export function getRole(){
-    return localStorage.getItem("role");
+// Get role
+export function getRole() {
+  return localStorage.getItem(ROLE_KEY);
 }
 
-export function removeRole(){
-    localStorage.removeItem("role");
+// Remove role (on logout)
+export function removeRole() {
+  localStorage.removeItem(ROLE_KEY);
 }
