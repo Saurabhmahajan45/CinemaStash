@@ -17,21 +17,21 @@ app.use(express.json());
 app.post("/user", registerUser);
 
 app.post("/admin", registerAdmin);
-app.post("/login", verifyToken, login);
+app.post("/login", login);
 
 app.post("/movies", addMovie);
 app.put("/movies/:id", updateMovie);
 app.delete("/movies/:id", deleteMovie);
 
-app.get("/movies", getAllMovies);
-app.get("/movies/:id", getMovieById);
+app.get("/movies",getAllMovies);
+app.get("/movies/:id" ,getMovieById);
 app.get("/movies/search", searchMovies);
 app.get("/movies/genre/:genre", getMoviesByGenre);
 app.patch("/movies/:id/rating", updateMovieRating);
 
 app.post("/booking", createBooking);
 app.get("/booking/user/:user_id", getBookingsByUser);
-app.get("/booking", getAllBookings);
+app.get("/booking",getAllBookings);
 app.put("/booking/status/:booking_id", updateBookingStatus);
 
 app.post("/reviews/add", addReview);

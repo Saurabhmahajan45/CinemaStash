@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export function verifyToken(request,response,next){
-    const authHeader = request.get('Authorization'); //'Bearer eyn43543fgfdg.sgfgdfgg'
+    const authHeader = request.get('Authorization'); //'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjI0NDA1MTJ9.pOe81ckIZ0PwGkmHoPbX8dTVj6Qf9IUQXLgth28vFos
     if(authHeader){
         const token = authHeader.split(" ")[1];
         jwt.verify(token,'user1234',(error, payload)=>{
