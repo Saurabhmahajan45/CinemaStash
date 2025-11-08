@@ -17,7 +17,7 @@ app.use(express.json());
 app.post("/user", registerUser);
 
 app.post("/admin", registerAdmin);
-app.post("/login", verifyToken, login);
+app.post("/login", login);
 
 app.post("/movies", addMovie);
 app.put("/movies/:id", updateMovie);

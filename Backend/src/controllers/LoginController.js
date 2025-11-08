@@ -19,7 +19,7 @@ export async function login(request, response) {
                     userId:rows[0].id,
                     role:role
                 } ,'user1234');
-                response.status(200).send({token,message:'Login successful'});
+                response.status(200).send({token,message:'Login successful',user_id:rows[0].user_id});
             }
             else{
                 response.status(400).send({ message: "Login failed, password is invalid" });

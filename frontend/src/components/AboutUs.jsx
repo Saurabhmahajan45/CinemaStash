@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-// import gauravPhoto from "../assets/images/gaurav.jpg";
+import gauravPhoto from "../assets/gaurav.jpg";
+import saurabhPhoto from "../assets/saurabh.jpg";
+import nandiniPhoto from "../assets/nandini.jpg"; 
 import '../assets/css/About.css';
 
 export function AboutUs() {
@@ -9,18 +11,19 @@ export function AboutUs() {
       name: "Saurabh Mahajan",
       role: "Full Stack Developer",
       description: "Handled frontend design and backend API integration.",
-      photo: "https://via.placeholder.com/150",
+      photo: saurabhPhoto,
     },
     {
       name: "Gaurav Sontakke",
       role: "UI/UX Designer",
       description: "Designed user-friendly interfaces and responsive layouts.",
+      photo : gauravPhoto,
     },
     {
       name: "Nandini Wahane",
       role: "Backend Developer",
       description: "Built and optimized server-side logic and database.",
-      photo: "https://via.placeholder.com/150",
+      photo: nandiniPhoto,
     },
   ];
 
